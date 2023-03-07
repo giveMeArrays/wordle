@@ -1,0 +1,51 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.gameGrid{
+    display: flex;
+    gap: 5px;
+    border: solid black 2px;
+    padding: 5px;
+}
+
+.gameRow{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.tile{
+    width: 100px;
+    height: 100px;
+    background-color: aqua;
+}
+
+.keyBoard{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+
+.kbRow1, .kbRow2, .kbRow3{
+    display: flex;
+    gap: 4px;
+}
+
+.alphabet{
+    width: 50px;
+    height: 50px;
+    background-color: cadetblue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
