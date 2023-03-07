@@ -4,19 +4,19 @@ html {
     font-family: "Roboto", sans-serif;
 }
 
-*{
+* {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
-body{
+body {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.gameGrid{
+.gameGrid {
     display: flex;
     flex-direction: column;
     gap: 5px;
@@ -25,12 +25,12 @@ body{
     margin-top: 25px;
 }
 
-.gameRow{
+.gameRow {
     display: flex;
     gap: 5px;
 }
 
-.tile{
+.tile {
     width: 100px;
     height: 100px;
     border: solid gray 2px;
@@ -40,7 +40,7 @@ body{
     font-size: x-large;
 }
 
-.keyBoard{
+.keyBoard {
     display: flex;
     flex-direction: column;
     gap: 5px;
@@ -48,12 +48,14 @@ body{
 }
 
 
-.kbRow1, .kbRow2, .kbRow3{
+.kbRow1,
+.kbRow2,
+.kbRow3 {
     display: flex;
     gap: 4px;
 }
 
-.alphabet{
+.alphabet {
     width: 50px;
     height: 50px;
     background-color: cadetblue;
@@ -64,7 +66,8 @@ body{
     border-radius: 4px;
 }
 
-.enter, .clear{
+.enter,
+.clear {
     width: 55px;
     padding: 3px;
     cursor: pointer;
@@ -74,31 +77,31 @@ body{
     animation: flip 0.7s;
 }*/
 
-@keyframes flip{
-    0%{
+@keyframes flip {
+    0% {
         transform: scaleY(1);
     }
 
     50% {
-        transform: scaleY(0.01) ;   
+        transform: scaleY(0.01);
     }
 
-    100%{
-        transform: scaleY(1) ;
+    100% {
+        transform: scaleY(1);
     }
 }
 
-@keyframes jump{
-    0%{
+@keyframes jump {
+    0% {
         transform: scale(1);
     }
 
     50% {
-        transform: scale(1.2) ;   
+        transform: scale(1.2);
     }
 
-    100%{
-        transform: scale(1) ;
+    100% {
+        transform: scale(1);
     }
 }
 
@@ -106,26 +109,27 @@ body{
 
 @media only screen and (max-width: 600px) {
     .tile {
-      width: 50px;
-      height: 50px;
+        width: 50px;
+        height: 50px;
     }
 
-    .alphabet{
+    .alphabet {
         width: 25px;
         height: 25px;
     }
 
-    .gameGrid{
+    .gameGrid {
         gap: 3px;
     }
 
-    .keyBoard{
+    .keyBoard {
         gap: 3px;
         font-size: smaller;
     }
 
-    .clear, .enter{
+    .clear,
+    .enter {
         width: 35px;
         font-size: smaller;
     }
-  }
+}
