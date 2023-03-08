@@ -1,6 +1,5 @@
 const letters = document.querySelectorAll(".alphabet")
 const gameRow = document.querySelectorAll(".gameRow")
-console.log(gameRow)
 let currentRow = 0
 let currentTile = 0
 let userWord = ""
@@ -28,19 +27,7 @@ enterButton.addEventListener("click", () => {
         alert("Not enough letters")
     }
     else {
-        // const wordcheck = fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${userWord}`)
-        //     .then(data => data.json())
-        //     .then(res => {
-        //         console.log(res)
-        //         if(Array.isArray(res)){
-        //             console.log("valid")
-        //         }
-        //         else{
-        //             alert("not a valid word")
-        //         }
-        //     })
-        checkUserWordWithApi()
-        resetUserWordAndRow()
+        checkWordIsValid()
     }
 })
 
@@ -51,12 +38,14 @@ clearButton.addEventListener("click", () => {
     currentTile--
 })
 
-async function checkUserWordWithApi() {
+async function checkWordIsValid() {
     const wordcheck = await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${userWord}`)
     const data = await wordcheck.json()
     console.log(data)
     if (Array.isArray(data)) {
         console.log("valid")
+        checkSequence()
+        resetUserWordAndRow()
     }
     else {
         alert("invalid word")
@@ -80,7 +69,32 @@ async function setTargetWord() {
 
     let target = await fetch('https://random-words5.p.rapidapi.com/getMultipleRandom?count=1&wordLength=5', options)
 
-    targetWord = await target.json()
+    let ArrtargetWord = await target.json()
+
+    targetWord = ArrtargetWord.toString().toUpperCase()
 
     console.log(targetWord)
+}
+
+function checkSequence() {
+    for (let character in userWord) {
+        console.log(userWord[character])
+        if (targetWord.includes(userWord[character])) {
+            gameRow[currentRow].children[character].style.background = "#b59f3b"
+            gameRow[currentRow].children[character].style.animation = "flip 0.4s"
+            let kbTile = document.querySelector(`.${userWord[character].toLowerCase()}`)
+            kbTile.style.background = "#b59f3b"
+            
+        }
+        if (targetWord[character] == userWord[character]){
+            gameRow[currentRow].children[character].style.background = "#538d4e"
+            gameRow[currentRow].children[character].style.animation = "flip 0.4s"
+            let kbTile = document.querySelector(`.${userWord[character].toLowerCase()}`)
+            kbTile.style.background = "#538d4e"
+            
+        }
+        else {
+            console.log("f")
+        }
+    }
 }
